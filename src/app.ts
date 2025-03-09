@@ -1,7 +1,7 @@
 import express, { Express } from "express";
 import morgan from "morgan";
 import setupSwagger from "../config/swagger";
-// import itemRoutes from "./api/v1/routes/itemRoutes";
+import loanRoutes from "./api/v1/routes/loanRoutes";
 import userRoutes from "./api/v1/routes/userRoutes";
 import adminRoutes from "./api/v1/routes/adminRoutes";
 import errorHandler from "./api/v1/middleware/errorHandler";
@@ -38,7 +38,9 @@ app.get("/api/v1/health", (req, res) => {
     // send JSON response with status, server uptime, current time, API version
 });
 
-// app.use("/api/v1/items", itemRoutes);
+
+
+app.use("/api/v1/loans", loanRoutes);
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/admin", adminRoutes);
 

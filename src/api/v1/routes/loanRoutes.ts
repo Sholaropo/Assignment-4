@@ -8,15 +8,50 @@ import isAuthorized from "../middleware/authorize";
 const router: Router = express.Router();
 
 /**
+ * @route GET /
+ * @description Get all loans.
+ */
+router.get(
+  "/",
+  authenticate,
+  isAuthorized({ hasRole: ["officer", "manager"] }),
+  loanController.getAllLoans
+);
+
+/**
  * @route POST /
  * @description Create a new loan request.
  */
 router.post(
-    "/",
-    authenticate,
-    isAuthorized({ hasRole: ["user"] }),
-    validateRequest(loanSchema),
-    loanController.createLoan
+  "/",
+  authenticate,
+  isAuthorized({ hasRole: ["user"] }),
+  validateRequest(loanSchema),
+  loanController.createLoan
 );
 
-export default router
+/**
+ * @route PUT /:id
+ * @description review an existing loan.
+ */
+router.put(
+  "/:id/review",
+  authenticate,
+  isAuthorized({ hasRole: ["officer"] }),
+  validateRequest(loanSchema),
+  loanController.reviewLoan
+);
+
+/**
+ * @route PUT /:id
+ * @description approve an existing loan.
+ */
+router.put(
+  "/:id/approve",
+  authenticate,
+  isAuthorized({ hasRole: ["manager"] }),
+  validateRequest(loanSchema),
+  loanController.approveLoan
+);
+
+export default router;

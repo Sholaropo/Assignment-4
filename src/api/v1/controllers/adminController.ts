@@ -11,7 +11,7 @@ export const setCustomClaims = async (
     const { uid, claims } = req.body;
 
     try {
-        await auth.setCustomUserClaims(uid, claims);
+        await auth.setCustomUserClaims(uid, claims);        
         res.status(HTTP_STATUS.OK).send(
             successResponse({}, `Custom claims set for user: ${uid}`)
         );
