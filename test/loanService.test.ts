@@ -1,7 +1,6 @@
-import { getAllLoans, createLoan } from "../src/api/v1/services/loanService";
+import { getAllLoans } from "../src/api/v1/services/loanService";
 import {
   getDocuments,
-  createDocument,
 } from "../src/api/v1/repositories/firestoreRepository";
 import { Loan } from "../src/api/v1/models/loanModel";
 import {
@@ -21,7 +20,7 @@ describe("Loan Service", () => {
     });
 
     it("should return all loans when the request is successful", async () => {
-      const mockDate = new Date();
+      const mockDate: Date = new Date();
       const mockDocs: QueryDocumentSnapshot[] = [
         {
           id: "loan1",

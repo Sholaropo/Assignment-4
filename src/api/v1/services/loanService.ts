@@ -7,7 +7,7 @@ import {
     getDocumentsByFieldValue,
 } from "../repositories/firestoreRepository";
 
-const COLLECTION = "loans";
+const COLLECTION: string = "loans";
 
 /**
  * @description Get all loans.

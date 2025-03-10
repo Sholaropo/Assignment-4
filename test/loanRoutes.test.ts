@@ -60,7 +60,7 @@ describe("Loan Routes", () => {
                 "reviewed": true
             };
 
-            const mockId = 1;
+            const mockId: number = 1;
 
             await request(app).put(`/api/v1/loans/${mockId}/review`).send(mockLoan);
             expect(reviewLoan).toHaveBeenCalled();
@@ -76,7 +76,7 @@ describe("Loan Routes", () => {
                 "reviewed": true
             };
 
-            const mockId = 1;
+            const mockId: number = 1;
 
             await request(app).put(`/api/v1/loans/${mockId}/approve`).send(mockLoan);
             expect(approveLoan).toHaveBeenCalled();

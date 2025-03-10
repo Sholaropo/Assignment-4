@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 import authenticate from "../src/api/v1/middleware/authenticate";
 import { auth } from "../config/firebaseConfig";
 import { AuthenticationError } from "../src/api/v1/errors/errors";
