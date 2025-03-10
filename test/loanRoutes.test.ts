@@ -7,6 +7,7 @@ import {
     approveLoan,
     reviewLoan,
 } from "../src/api/v1/controllers/loanController";
+import { LoanType } from "src/api/v1/types/loanType";
 
 jest.mock("../src/api/v1/controllers/loanController", () => ({
     getAllLoans: jest.fn((req, res) => res.status(200).send()),
@@ -39,7 +40,7 @@ describe("Loan Routes", () => {
 
     describe("POST /api/v1/loans", () => {
         it("should call createLoan controller", async () => {
-            const mockLoan = {
+            const mockLoan : Partial<LoanType> = {
                 "amount": "1000",
                 "description": "Medical Loan",
                 "approved": false,
@@ -53,7 +54,7 @@ describe("Loan Routes", () => {
 
     describe("PUT /api/v1/loans/:id/review", () => {
         it("should call reviewLoan controller", async () => {
-            const mockLoan = {
+            const mockLoan: Partial<LoanType> = {
                 "amount": "1000",
                 "description": "Medical Loan",
                 "approved": false,
@@ -69,7 +70,7 @@ describe("Loan Routes", () => {
 
     describe("PUT /api/v1/loans/:id/approve", () => {
         it("should call approveLoan controller", async () => {
-            const mockLoan = {
+            const mockLoan: Partial<LoanType> = {
                 "amount": "1000",
                 "description": "Medical Loan",
                 "approved": true,

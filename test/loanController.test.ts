@@ -8,6 +8,7 @@ jest.mock("../src/api/v1/services/loanService", () => ({
 import { Request, Response, NextFunction } from "express";
 import * as loanController from "../src/api/v1/controllers/loanController";
 import * as loanService from "../src/api/v1/services/loanService";
+import { LoanType } from "src/api/v1/types/loanType";
 
 jest.mock("../src/api/v1/services/loanService");
 
@@ -25,7 +26,7 @@ describe("Loan Controller", () => {
 
   describe("getAllLoans", () => {
     it("should handle successful operation", async () => {
-      const mockLoans = [
+      const mockLoans: Partial<LoanType>[] = [
         {
           id: "1",
           amount: "1000",
