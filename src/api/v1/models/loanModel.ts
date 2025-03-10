@@ -9,5 +9,5 @@ export type Loan = {
     approved: boolean;
     reviewed: boolean;
     createdAt: Date;
-    updatedAd: Date;
+    updatedAt: Date;
 };

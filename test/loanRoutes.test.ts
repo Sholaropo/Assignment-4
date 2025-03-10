@@ -39,21 +39,21 @@ describe("Loan Routes", () => {
 
     describe("POST /api/v1/loans", () => {
         it("should call createLoan controller", async () => {
-            const mockItem = {
+            const mockLoan = {
                 "amount": "1000",
                 "description": "Medical Loan",
                 "approved": false,
                 "reviewed": false
             };
 
-            await request(app).post("/api/v1/loans").send(mockItem);
+            await request(app).post("/api/v1/loans").send(mockLoan);
             expect(createLoan).toHaveBeenCalled();
         });
     });
 
     describe("PUT /api/v1/loans/:id/review", () => {
         it("should call reviewLoan controller", async () => {
-            const mockItem = {
+            const mockLoan = {
                 "amount": "1000",
                 "description": "Medical Loan",
                 "approved": false,
@@ -62,14 +62,14 @@ describe("Loan Routes", () => {
 
             const mockId = 1;
 
-            await request(app).put(`/api/v1/loans/${mockId}/review`).send(mockItem);
+            await request(app).put(`/api/v1/loans/${mockId}/review`).send(mockLoan);
             expect(reviewLoan).toHaveBeenCalled();
         });
     });
 
     describe("PUT /api/v1/loans/:id/approve", () => {
         it("should call approveLoan controller", async () => {
-            const mockItem = {
+            const mockLoan = {
                 "amount": "1000",
                 "description": "Medical Loan",
                 "approved": true,
@@ -78,7 +78,7 @@ describe("Loan Routes", () => {
 
             const mockId = 1;
 
-            await request(app).put(`/api/v1/loans/${mockId}/approve`).send(mockItem);
+            await request(app).put(`/api/v1/loans/${mockId}/approve`).send(mockLoan);
             expect(approveLoan).toHaveBeenCalled();
         });
     });
