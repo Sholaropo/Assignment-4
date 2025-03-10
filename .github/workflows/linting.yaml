@@ -4,6 +4,10 @@ on:
         branches:
             - main
             - development
+    push:
+        branches:
+            - main
+            - development
 jobs:
     lint:
         runs-on: ubuntu-latest
